@@ -20,7 +20,7 @@ public class Property extends BaseEntity {
     private UUID ownerId;
 
     @Column(name = "title", nullable = false, length = 100)
-    private String propertyDetails;
+    private String title;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "property_type", nullable = false)
@@ -56,10 +56,10 @@ public class Property extends BaseEntity {
 
     public Property() {}
 
-    public Property(UUID propertyId, UUID ownerId, String propertyDetails, PropertyType propertyType, String address, String city, String state, String postalCode, Integer areaSqft, String propertyImageUrl, BigDecimal rentAmount, BigDecimal securityDeposit, OccupancyStatus occupancyStatus) {
+    public Property(UUID propertyId, UUID ownerId, String title, PropertyType propertyType, String address, String city, String state, String postalCode, Integer areaSqft, String propertyImageUrl, BigDecimal rentAmount, BigDecimal securityDeposit, OccupancyStatus occupancyStatus) {
         this.propertyId = propertyId;
         this.ownerId = ownerId;
-        this.propertyDetails = propertyDetails;
+        this.title = title;
         this.propertyType = propertyType;
         this.address = address;
         this.city = city;
@@ -78,8 +78,13 @@ public class Property extends BaseEntity {
     public UUID getOwnerId() { return ownerId; }
     public void setOwnerId(UUID ownerId) { this.ownerId = ownerId; }
 
-    public String getPropertyDetails() { return propertyDetails; }
-    public void setPropertyDetails(String propertyDetails) { this.propertyDetails = propertyDetails; }
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public PropertyType getPropertyType() { return propertyType; }
     public void setPropertyType(PropertyType propertyType) { this.propertyType = propertyType; }
